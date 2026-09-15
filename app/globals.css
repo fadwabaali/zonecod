@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand gradient — pulled from the ZONECOD dashboard screenshot's
+     sidebar active-state and stat-card icons. Used via the .gradient-brand
+     utility below and can be referenced directly as bg-brand-pink etc. */
+  --color-brand-pink: #ec4899;
+  --color-brand-orange: #f97316;
+  --color-brand-purple: #8b5cf6;
+
+  /* Sidebar / dark surfaces */
+  --color-navy-950: #0d0d17;
+  --color-navy-900: #12121f;
+  --color-navy-800: #1b1b2e;
+
+  /* Neutral content background + text — light theme for the main content
+     area, matching the white dashboard panels in the screenshot. */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-text-muted: #64748b;
+
+  /* Status colors reused across order-status badges, stat cards */
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-danger: #dc2626;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-muted);
+}
+
+/* Reusable brand gradient — e.g. <div class="gradient-brand"> for the
+   active sidebar item or a primary CTA button background. */
+.gradient-brand {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-brand-pink),
+    var(--color-brand-orange),
+    var(--color-brand-purple)
+  );
+}
