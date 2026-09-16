@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { LogoutButton } from "@/components/auth/logout-button";
 
 export default async function PendingApprovalPage() {
   const supabase = await createClient();
@@ -26,23 +27,9 @@ export default async function PendingApprovalPage() {
           admin approval. You&apos;ll get full access to the marketplace as
           soon as it&apos;s approved.
         </p>
-
-        <form
-          action={async () => {
-            "use server";
-            const supabase = await createClient();
-            await supabase.auth.signOut();
-            redirect("/login");
-          }}
-          className="mt-6"
-        >
-          <button
-            type="submit"
-            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium"
-          >
-            Log out
-          </button>
-        </form>
+        <div className="mt-6 flex justify-center">
+          <LogoutButton />
+        </div>
       </div>
     </main>
   );
